@@ -12,7 +12,7 @@ This file reports the technical implementation of the speech-sma project.
 * Paper: Hiovain-Asikainen, K. & Kjærstad, B. T. & Kappfjell M. L. & Moshagen, N. S. (2025, accepted). The world’s first South Sámi TTS – a revitalisation effort of an endangered
 language by reviving a legacy voice. Accepted for IWCLUL 2025, Joensuu, Finland.
 
-### CORPUS BUILDING
+### Corpus building
 #### Text Corpus
 * Anna Jacobsen’s broadcasts that already existed in written form, as they were later published in the anthology series Don jih daan bijre I–III (Jacobsen, 1997, 1998, 2000).
 * Her biblical recordings were aligned with the South Sámi translation she produced together with Bierna Leine Bientie (Jacobsen and Bientie, 1993), which was scanned and OCR-processed for the project.
@@ -22,6 +22,10 @@ language by reviving a legacy voice. Accepted for IWCLUL 2025, Joensuu, Finland.
 * Existing recordings of Anna Jacobsen. 
 * The archival recordings of Anna Jacobsen were sourced from the Norwegian national broadcaster NRK and several audiobooks, and were digitally restored, enhanced, and transcribed by the Divvun group at UiT in collaboration with the Sámi Archives and the National Archives of Norway. Recorded between 1989 and 1993, the material spans multiple genres, including news and documentary broadcasts, biblical readings, fairy tales, and spontaneous autobiographical storytelling.
 * During transcription, segments with very poor audio quality or containing speakers other than Anna Jacobsen were excluded from the final TTS corpus.
+#### Text processing
+* Most importantly checking existing texts that they match the audio tapes accurately + manual transcription.
+* Done by 3 people, native and non-native language experts. 
+* Processing roughly ten hours of audio resulted in about one hundred hours of transcription, equivalent to 2.5–3 weeks of full-time work for one person.
 #### Audio processing
 * Name files: wavs and txts identically
     * Also: split very long files to 2-3 parts to make the automatic pre-processing easier
@@ -32,11 +36,6 @@ language by reviving a legacy voice. Accepted for IWCLUL 2025, Joensuu, Finland.
         * copy the [SCRIPT: norm_file_noconv.sh] to the folder where you have your target files, open a Terminal and cd to that folder with the script and the target files. Make a separate /output subfolder
         * remember to export path before running the command: export PATH=$PATH:/home/user/STL/bin 
         * run this command (example; fill with your own folder paths): ls -1 /home/user/sma/aj/*.wav | xargs -P 8 -I {} bash norm_file_noconv.sh {} /home/user/sma/aj/output
-
-#### Text processing
-* Most importantly checking existing texts that they match the audio tapes accurately + manual transcription.
-* Done by 3 people, native and non-native language experts. 
-* Processing roughly ten hours of audio resulted in about one hundred hours of transcription, equivalent to 2.5–3 weeks of full-time work for one person.
 
 #### Splitting the data to sentences
 * Generally, all TTS frameworks require the training data to be in certain form. This is sentence-long .wav and .txt pairs. The files should not vary too much in length.
@@ -59,7 +58,7 @@ language by reviving a legacy voice. Accepted for IWCLUL 2025, Joensuu, Finland.
 #### Fastpitch setup and training
 * [Fastpitch on GitHub](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/SpeechSynthesis/FastPitch)
     * Reference: [Adrian Łańcucki, 2021](https://arxiv.org/abs/2006.06873)
-* Define symbol set of the language carefully [SCRIPT, for example: /home/hiovain/DeepLearningExamples/PyTorch/SpeechSynthesis/FastPitch/common/text/symbols.py]
+* Define symbol set of the language carefully [SCRIPT, for example: /home/user/DeepLearningExamples/PyTorch/SpeechSynthesis/FastPitch/common/text/symbols.py]
     * This is EXTREMELY important to get right! If the symbol list is not correct, the training will not work correctly. It's better to include "too many" symbols than too few.
 * Fastpitch pre-processing [SCRIPT: scripts/prepare_dataset.sh]
     * define data table/filelist
@@ -84,7 +83,7 @@ from nemo.collections.tts.models import UnivNetModel
 self.vocoder = UnivNetModel.from_pretrained(model_name="tts_en_libritts_univnet")
 ...
 ### Exporting TorchScript for C++ integration
-* Command: python export_torchscript.py --generator-name FastPitch --generator-checkpoint /output_sme_af/FastPitch_checkpoint_1000.pt --output /output_sme_af/torchscript_sme_f.pt --amp
+* Command: <python export_torchscript.py --generator-name FastPitch --generator-checkpoint /output_sme_af/FastPitch_checkpoint_1000.pt --output /output_sme_af/torchscript_sme_f.pt --amp>
 ### User interface for TTS
 * Huggingface multi-sami demo [Huggingface](https://huggingface.co/spaces/divvun-tts/multi-sami), includes multiple Sámi languages. 
 ### Publications & presentations
@@ -96,7 +95,7 @@ self.vocoder = UnivNetModel.from_pretrained(model_name="tts_en_libritts_univnet"
 * Restrictions for specific use cases, such as commercial, academic etc...?
 ### To do...
 * More voices and dialects.
-* Integration to ANKI?
+* Integration to ANKI flashcard application for language learning?
 
 ### Bibliography & other useful links
 * https://tts.readthedocs.io/en/latest/what_makes_a_good_dataset.html
