@@ -89,9 +89,9 @@ self.vocoder = UnivNetModel.from_pretrained(model_name="tts_en_libritts_univnet"
 ### Publications & presentations
 * Publication event 30.10.2024 in Hattfjelldal, Anna Jacobsen's 100th birthday
 * Trondheim AI i Norden, 7.11.2024 (?)
-* IWCLUL 2025, Joensuu, Finland
+* IWCLUL 2025, Joensuu, Finland (coming up)
 ### Publishing the materials and models
-* Where to publish/store data and models?
+* Where to publish/store data and models? Licencing.
 * Restrictions for specific use cases, such as commercial, academic etc...?
 ### To do...
 * More voices and dialects.
