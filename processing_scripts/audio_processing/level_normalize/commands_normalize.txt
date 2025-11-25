@@ -1,0 +1,1 @@
+ls -1 /home/hiovain/Bodø/Sander_mdgn/*.wav | xargs -P 8 -I {} bash norm_file.sh {} /home/hiovain/Bodø/Sander_mdgn/output
