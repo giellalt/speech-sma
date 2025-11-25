@@ -1,0 +1,17 @@
+EXAMPLE:
+python export_torchscript.py --generator-name FastPitch --generator-checkpoint output_sme_af/FastPitch_checkpoint_1000.pt --output output_sme_af/torchscript_sme_f.pt --amp --symbol-set sme_expanded --n-speakers 1
+
+SMJ MALE:
+python export_torchscript.py --generator-name FastPitch --generator-checkpoint /home/hiovain/DeepLearningExamples/PyTorch/SpeechSynthesis/FastPitch/output_mikal_sander/FastPitch_checkpoint_350.pt --output output_mikal_sander/torchscript_smj_m.pt --amp --symbol-set smj_expanded --n-speakers 2
+
+SMJ FEMALE:
+python export_torchscript.py --generator-name FastPitch --generator-checkpoint /home/hiovain/DeepLearningExamples/PyTorch/SpeechSynthesis/FastPitch/output_bik/FastPitch_checkpoint_510.pt --output output_bik/torchscript_smj_f.pt --amp --symbol-set smj_expanded --n-speakers 2
+
+SME FEMALE:
+python export_torchscript.py --generator-name FastPitch --generator-checkpoint /home/hiovain/DeepLearningExamples/PyTorch/SpeechSynthesis/FastPitch/output_2spkrs/FastPitch_checkpoint_470.pt --output output_2spkrs/torchscript_sme_f.pt --amp --symbol-set sme_expanded --n-speakers 2
+
+SME MALE:
+python export_torchscript.py --generator-name FastPitch --generator-checkpoint /home/hiovain/DeepLearningExamples/PyTorch/SpeechSynthesis/FastPitch/output_sme_am/FastPitch_checkpoint_770_new.pt --output output_sme_am/torchscript_sme_m.pt --amp --symbol-set sme_expanded --n-speakers 1
+
+SMA FEMALE:
+python export_torchscript.py --generator-name FastPitch --generator-checkpoint /home/hiovain/DeepLearningExamples/PyTorch/SpeechSynthesis/FastPitch/output_aj/FastPitch_checkpoint_830.pt --output output_aj/torchscript_sma_f.pt --amp --symbol-set sma_expanded --n-speakers 2

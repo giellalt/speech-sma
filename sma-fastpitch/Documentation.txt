@@ -1,0 +1,15 @@
+0) move audio files to fastpitch/ root
+1) extract_filenames.py
+2) output to filelists
+3) run bash scripts/prepare_dataset.py (change paths)
+ValueError: 44100 SR doesn't match target 22050 SR !!! -- convert if needed
+4) save_pitch_filenames.py
+5) shuffle lists with shuf *.txt > *_shuf.txt
+
+shuf acapela_m_desc_tts_pitch.txt > acapela_m_desc_tts_pitch_shuf.txt
+
+6) create validation lists, take maybe 50-100 sents from the end of the shuffled lists (50 val)
+
+7) create a train.sh and change the paths of the filelists and datasets accordingly as well as the symbol set; remember to change the symbols.py as well, and add the new symbol set to the end of the script as well
+
+8) sync with saga
