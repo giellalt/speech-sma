@@ -1,6 +1,6 @@
 template = "https://github.com/giellalt/template-speech-und"
 rev_id = 4
-template_sha = "0792a9413731351aa6e85069f825ba8fb290da16"
+template_sha = "7acb0700c63a71a30f9701da3cfd3eee37f329bb"
 
 [replacements]
 __UNDEFINED__ = "South Sámi"
